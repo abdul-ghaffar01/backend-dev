@@ -1,0 +1,30 @@
+http: Stands for hypertext transfer protocol
+
+http is the protocol browsers, clients, and servers use to communicate.
+
+Every http interaction has two parts:
+1. Request      Client asks for something
+2. Response     Server answers
+
+Http request components:
+    1. Method
+        1. Get
+        2. Post
+        3. Put
+        4. Patch
+        5. Delete
+    2. Headers
+        1. Content-Type
+        2. Authorization
+        3. Cookies
+        4. Cache-control
+    3. URl
+    4. Body
+
+Http response components:
+    1. Status code 
+        - three digit code
+    2. Headers
+        - Same as request
+    3. Body
+
