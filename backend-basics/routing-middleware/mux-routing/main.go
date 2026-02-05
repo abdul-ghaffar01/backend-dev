@@ -13,10 +13,13 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getUserById(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	id := params["id"]
 	json.NewEncoder(w).Encode(struct {
+		Id string		`json:"id"`
 		Name string		`json:"name"`
 		Age  int		`json:"age"`
-	}{"Abdul ghaffar", 22})
+	}{id, "Abdul ghaffar", 22})
 }
 
 func main() {
