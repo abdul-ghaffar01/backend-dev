@@ -64,3 +64,17 @@ func (a *AuthService) AddNewLogin(country, browser, userId string) error {
 
 	return nil
 }
+
+func (a *AuthService) RevokeToken(token string) error {
+	if token == "" {
+		return fmt.Errorf("Token not found")
+	}
+	return a.repo.RevokeAllTokens(token)
+}
+
+func (a *AuthService) RevokeAllTokens(userId string) error {
+	if userId == "" {
+		fmt.Errorf("Userid cannot be empty")
+	}
+	return a.repo.RevokeAllTokens(userId)
+}
