@@ -40,5 +40,11 @@ This repository is to just learn the security in go for apis, contains nothing m
 │           ├── go.mod
 │           ├── go.sum
 │           └── main.go
+├── env-and-logs
+│   ├── config
+│   │   └── env.go
+│   ├── go.mod
+│   ├── go.sum
+│   └── main.go
 └── readme.md
 ```
