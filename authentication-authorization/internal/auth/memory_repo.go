@@ -1,5 +1,7 @@
 package auth
 
+import "fmt"
+
 type MemoryRepository struct {
 	data map[string]*AuthModel
 }
@@ -22,7 +24,7 @@ func (r *MemoryRepository) RevokeToken(token string) error {
 			return nil
 		}
 	}
-	return nil
+	return fmt.Errorf("Token not found")
 }
 
 func (r *MemoryRepository) RevokeAllTokens(userId string) error {

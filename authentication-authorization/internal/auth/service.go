@@ -9,7 +9,7 @@ import (
 )
 
 type AuthService struct {
-	repo *MemoryRepository
+	repo Repository
 }
 
 type JwtClaims struct {
@@ -19,6 +19,12 @@ type JwtClaims struct {
 }
 
 var JWTsecret string = "laksdjf8947234jlksjdf089342d"
+
+func NewAuthService(repo Repository) *AuthService {
+	return &AuthService{
+		repo: repo,
+	}
+}
 
 func (a *AuthService) AddNewLogin(country, browser, userId string) error {
 	var auth AuthModel = AuthModel{Country: country, Browser: browser, UserID: userId}
@@ -50,7 +56,7 @@ func (a *AuthService) AddNewLogin(country, browser, userId string) error {
 	auth.ExpireTime = time.Now().Add(24 * time.Hour)
 	auth.IsValid = true
 
-	// saving the login 
+	// saving the login
 	err = a.repo.AddNewLogin(&auth)
 	if err != nil {
 		return fmt.Errorf("Service->AddNewLogin: %s", err.Error())
