@@ -74,7 +74,7 @@ func (a *AuthService) RevokeToken(token string) error {
 
 func (a *AuthService) RevokeAllTokens(userId string) error {
 	if userId == "" {
-		fmt.Errorf("Userid cannot be empty")
+		return fmt.Errorf("Userid cannot be empty")
 	}
 	return a.repo.RevokeAllTokens(userId)
 }
